@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+
+</head>
+
+<body class="container">
+    <h1>undefined and null</h1>
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            In JavaScript,
+            <b>undefined</b> means a variable has been declared but has not yet been assigned a value.
+            <b>null</b> is an assignment value. It can be assigned to a variable as a representation of no value.
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example (please check console log for output)</h4>
+        </legend>
+        <pre>
+            
+/**
+In JavaScript, undefined means a variable has been declared but has not yet been assigned a value, such as:
+ */
+
+var TestVar;
+alert(TestVar); //shows undefined
+alert(typeof TestVar); //shows undefined
+/**
+null is an assignment value.It can be assigned to a variable as a representation of no value:
+ */
+
+var TestVar = null;
+alert(TestVar); //shows null
+alert(typeof TestVar); //shows object
+
+/**
+From the preceding examples, it is clear that undefined and null are two distinct types: undefined is a type itself (undefined) while null is an object.
+ */
+
+null === undefined // false
+null == undefined // true
+null === null // true
+and
+
+null = 'value' // ReferenceError
+undefined = 'value' // 'value'
+            
+                
+                
+        </pre>
+    </div>
+
+</body>
+
+</html>
