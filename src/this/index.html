@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+
+</head>
+
+<body class="container">
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            In javascript
+            <b>this</b> refers to the calling context however in other programming language
+            <b>this</b> points to the instance of the object.
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example (please check console log for output)</h4>
+        </legend>
+        <pre>
+                function Samsung() {
+                    this.store = "Google Play";
+                    this.install = function () {
+                        console.log('installing app from ' + this.store); // here this is pointing to what ? 
+                    }
+                }
+                
+                function IPhone() {
+                    this.store = "Apple Store";
+                    this.install = function () {
+                        console.log('installing app from ' + this.store);// here this is pointing to what ? 
+                    }
+                }
+                
+                var samsung = new Samsung();
+                var iphone = new IPhone(); 
+                
+                samsung.install.call(iphone); // what would be output ? 
+                
+                /**
+                 * Since install method is called by passing the iphone instance. 
+                 * `this` will point to the iphone instance and the `store` value
+                 * will be read from the iphone instance only. 
+                 * Therefore, the output will be:
+                 * `installing app from Apple Store`
+                 * */
+                
+        </pre>
+    </div>
+
+</body>
+
+</html>

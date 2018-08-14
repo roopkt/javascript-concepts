@@ -1,8 +1,59 @@
 <html>
-    <head>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <script src="./index.js"></script>
 </head>
-<body>
-    Welcome to hoisting example check console log
+
+<body class="container">
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            Hoisting is javascript priniciple where any varibales gets declared at the begining of the function.
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example ( Please check console log for output of below example )</h4>
+        </legend>
+        <pre>
+        
+var x = 5;
+function print() {
+  if(x==5) {
+    var x = 6;
+    console.log(x);
+  } else {
+    x = 7;
+    console.log(x); 
+  }
+}
+print() ; // what will be output ?
+
+/**
+Here line number 4 x is declared and initialized.
+Therefore, x will be moved at the top of the function
+it will  move to line number 3 and initizlie x with undefinied. 
+var x = 5;
+function() {
+    var x;
+    if(x==5) {
+      x = 6;
+      alert(x);
+    } else {
+    x = 7;
+    alert(x); 
+  }
+}
+therefore after calling this function it will alert 7 only. 
+*/
+    </pre>
+
+    </div>
 </body>
+
 </html>
