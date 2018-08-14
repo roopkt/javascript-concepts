@@ -13,11 +13,17 @@ function logger() {
 
     /** private function */
     function info(msg) {
+        // public function is referening to debug private
+        // function which has access to the private variable `version`.
+        // This is the powerful pattern 
         console.info(version + msg);
     }
 
     /** private function */
     function debug(msg) {
+        // public function is referening to debug private
+        // function which has access to the private variable `version`.
+        // This is the powerful pattern 
         console.debug(version + msg);
     }
 }

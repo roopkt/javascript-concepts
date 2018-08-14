@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+</head>
+
+<body class="container">
+    <h1>Prototype Pattern</h1>
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            <h3>What is prototype pattern ? </h3>
+            <b>Prototype pattern </b> are memory efficient since every public functions and varibales are declared in the prototype
+            of the function therefore, whenever instance are created for that function every instance will not have copy
+            of those functions and variables which are in prototype. Rather those instances will have reference to the variables
+            and functions hence it is memory efficient.
+            <h3>When We need it ? </h3>
+            When we want to create a class and whose various instances has to be used in many places. For example if we create a Animal
+            Class and we can create many concreate animals later.
+            <h3>What is disadvantages of prototype pattern</h3>
+            <p>
+                In
+                <b>Module Pattern</b> public function can access private functions. However in
+                <b>prototype pattern </b> public function declared in prototype object can not access any private functions
+                or variables.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example ( Please check console log for output of below example )</h4>
+        </legend>
+        <pre>
+                function Logger() {
+                }
+                
+                /** private variable */
+                Logger.prototype.version = 'Logger Version 2.3: ';
+                
+                /** public function */
+                Logger.prototype.info = function (msg) {
+                    console.info(this.version + msg);
+                }
+                
+                /** public function */
+                Logger.prototype.debug = function (msg) {
+                    console.debug(this.version + msg);
+                }
+                
+                
+                var log = new Logger(); // we have to use new to create instance
+                log.info('This is info message');
+                log.info('This is debug message');
+      
+        </pre>
+    </div>
+</body>
+
+</html>
