@@ -22,3 +22,15 @@ function setLogger( logger ) {
   // what would be outputs ? 
   setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
   setLogger(console.info)(); // print message Logger Version: 23 in info mode.
+
+
+  /**
+   * Write mul(3)(6) which will return multiplication of 3 and 6
+   */
+  function mul(a) {
+    return function(b) {
+      return a*b;
+    }
+  } 
+
+  console.log( mul(3)(6) ) ;

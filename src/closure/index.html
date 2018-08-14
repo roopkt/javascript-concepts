@@ -28,7 +28,7 @@
               3. Access to its outer function variables and args. 
             */
             
-            /* Here is an example 
+            /* EXAMPLE 1 
             Even though inner function printVersion has returned its value. 
             It has access to its outer function variable 'version' and argument 'logger'
             */
@@ -36,14 +36,27 @@
             function setLogger( logger ) {
                 var version  = 23; 
                 return function printVersion() {
-                  var prefix = 'Logger Version: ';
-                  logger(prefix+ version);
+                    var prefix = 'Logger Version: ';
+                    logger(prefix+ version);
                 }
-              } 
-              
-              // what would be outputs ? 
-              setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
-              setLogger(console.info)(); // print message Logger Version: 23 in info mode. 
+            } 
+            
+            // what would be outputs ? 
+            setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
+            setLogger(console.info)(); // print message Logger Version: 23 in info mode. 
+
+
+                
+            /** EXAMPLE 2
+            * Write mul(3)(6) which will return multiplication of 3 and 6
+            */
+            function mul(a) {
+            return function(b) {
+                return a*b;
+            }
+            } 
+
+            console.log( mul(3)(6) );
     </pre>
     </div>
 
