@@ -3,12 +3,13 @@ var x = 5;
 function print() {
   if(x==5) {
     var x = 6;
-    alert(x);
+    console.log(x);
   } else {
     x = 7;
-    alert(x); 
+    console.log(x); 
   }
 }
+print() ; // what will be output ?
 
 /**
 Here line number 4 x is declared and initialized.

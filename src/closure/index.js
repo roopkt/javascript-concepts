@@ -19,6 +19,6 @@ function setLogger( logger ) {
     }
   } 
   
-  
+  // what would be outputs ? 
   setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
   setLogger(console.info)(); // print message Logger Version: 23 in info mode.
