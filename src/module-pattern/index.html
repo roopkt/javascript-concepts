@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+</head>
+
+<body class="container">
+        <h1>Module Pattern</h1>
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            <h3>What is module pattern ? </h3>
+            Module pattern or Revealing Module pattern is good way to create an utility object where we can have private / public variables
+            and methods.
+            <h3>When We need it ? </h3>
+            When we do not want to create the instance of the Class and just want to have only one instance then
+            <b>Module</b> pattern is preferrable.
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example ( Please check console log for output of below example )</h4>
+        </legend>
+        <pre>
+                function logger() {
+
+                    /** private variable */
+                    var version = 'Logger Version 2.3: ';
+                
+                    /**
+                     * public functions
+                     */
+                    return {
+                        info: info,
+                        debug: debug
+                    }
+                
+                    /** private function */
+                    function info(msg) {
+                        console.info(version + msg);
+                    }
+                
+                    /** private function */
+                    function debug(msg) {
+                        console.debug(version + msg);
+                    }
+                }
+                
+                var log = logger();
+                log.info('This is info message');
+                log.info('This is debug message');
+      
+        </pre>
+    </div>
+</body>
+
+</html>
