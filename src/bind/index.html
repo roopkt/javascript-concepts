@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+</head>
+
+<body class="container">
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            Bind is used to change the calling context or `this` of the function. 
+        </div>
+    </div>
+    <div>
+        <legend>
+            <h4>Example ( Please check console log for output of below example )</h4>
+        </legend>
+        <pre>
+            /*
+            In Javascript inner function has access to the outer functions variables and arguments is called as closure. 
+            Inner function scope has 3 access.
+              1. Access to its local scope variables
+              2. Access to global scope variables
+              3. Access to its outer function variables and args. 
+            */
+            
+            /* EXAMPLE 1 
+            Even though inner function printVersion has returned its value. 
+            It has access to its outer function variable 'version' and argument 'logger'
+            */
+            
+            function setLogger( logger ) {
+                var version  = 23; 
+                return function printVersion() {
+                    var prefix = 'Logger Version: ';
+                    logger(prefix+ version);
+                }
+            } 
+            
+            // what would be outputs ? 
+            setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
+            setLogger(console.info)(); // print message Logger Version: 23 in info mode. 
+
+
+                
+            /** EXAMPLE 2
+            * Write mul(3)(6) which will return multiplication of 3 and 6
+            */
+            function mul(a) {
+            return function(b) {
+                return a*b;
+            }
+            } 
+
+            console.log( mul(3)(6) );
+    </pre>
+    </div>
+
+</body>
+
+</html>
