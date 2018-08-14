@@ -20,43 +20,36 @@
             <h4>Example ( Please check console log for output of below example )</h4>
         </legend>
         <pre>
-            /*
-            In Javascript inner function has access to the outer functions variables and arguments is called as closure. 
-            Inner function scope has 3 access.
-              1. Access to its local scope variables
-              2. Access to global scope variables
-              3. Access to its outer function variables and args. 
-            */
-            
-            /* EXAMPLE 1 
-            Even though inner function printVersion has returned its value. 
-            It has access to its outer function variable 'version' and argument 'logger'
-            */
-            
-            function setLogger( logger ) {
-                var version  = 23; 
-                return function printVersion() {
-                    var prefix = 'Logger Version: ';
-                    logger(prefix+ version);
-                }
-            } 
-            
-            // what would be outputs ? 
-            setLogger(console.debug)(); // print message Logger Version: 23 in debug mode
-            setLogger(console.info)(); // print message Logger Version: 23 in info mode. 
-
-
-                
-            /** EXAMPLE 2
-            * Write mul(3)(6) which will return multiplication of 3 and 6
-            */
-            function mul(a) {
-            return function(b) {
-                return a*b;
-            }
-            } 
-
-            console.log( mul(3)(6) );
+                function Samsung() {
+                    this.store = "Google Play";
+                    this.install = function () {
+                        console.log('installing app from ' + this.store); // here this is pointing to what ? 
+                    }
+                  }
+                  
+                  function IPhone() {
+                    this.store = "Apple Store";
+                    this.install = function () {
+                        console.log('installing app from ' + this.store);// here this is pointing to what ? 
+                    }
+                  }
+                  
+                  var samsung = new Samsung();
+                  var iphone = new IPhone(); 
+                  
+                  /** 
+                  * At this point we are not calling samsung install function
+                  * rather we are just binding the context of samsung to iphone
+                  * Hence returning new function whose `this` is pointing to the iphone.
+                  * Therefore, when we call install function it will point to iphone instance 
+                  * Therefore, the output will be:
+                  * `installing app from Apple Store`
+                  **/
+                  var  install  = samsung.install.bind(iphone);  
+                  
+                  install() // what would be the output ? 
+                   
+                  
     </pre>
     </div>
 
