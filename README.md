@@ -5,4 +5,9 @@ In this little project I will try to explain few javascript concepts that I bele
 
 ## How to start
 Please open the src/index.html file in any browser and then you can click on each concepts and you will see the example and definition for that concept.
-![](./index.png)
+
+## Home page
+![ ](./index.png)
+
+## Example page
+![ ](./closure.png)
