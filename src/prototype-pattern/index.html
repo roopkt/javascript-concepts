@@ -36,26 +36,37 @@
             <h4>Example ( Please check console log for output of below example )</h4>
         </legend>
         <pre>
-                function Logger() {
-                }
+                /**
+                * This Animal function is called as constructor function
+                * Every constructor function is treaded as Class and 
+                * can be written as Pascal Case. 
+                */
+               function Animal() {
+               
+               }
+               
+               /** public variable */
+               Animal.prototype.type = 'Animal: ';
+               
+               /** public function */
+               Animal.prototype.walk = function (msg) {
+                    this.log(msg);
+               }
+               
+               /** public function */
+               Animal.prototype.talk = function (msg) {
+                    this.log(msg);
+               }
+               
+               /** public function */
+               Animal.prototype.log = function (msg) {
+                   console.log(this.type + msg);
+               }
                 
-                /** private variable */
-                Logger.prototype.version = 'Logger Version 2.3: ';
                 
-                /** public function */
-                Logger.prototype.info = function (msg) {
-                    console.info(this.version + msg);
-                }
-                
-                /** public function */
-                Logger.prototype.debug = function (msg) {
-                    console.debug(this.version + msg);
-                }
-                
-                
-                var log = new Logger(); // we have to use new to create instance
-                log.info('This is info message');
-                log.info('This is debug message');
+                var animal = new Animal(); // we have to use new to create instance
+                animal.walk('animal is walking');
+                animal.talk('animal is talking');
       
         </pre>
     </div>

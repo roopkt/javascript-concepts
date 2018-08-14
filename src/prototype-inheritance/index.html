@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="./index.js"></script>
+</head>
+
+<body class="container">
+    <h1>Prototype Inheritance</h1>
+    <div>
+        <legend>
+            <h4>Definition</h4>
+        </legend>
+        <div class="alert alert-success">
+            <p> Using prototype chain one can acheive inheritance like object oriented programming does. In order to make a child
+                class we can assign parent function's prototype to the child's function's prototype and hence acheive inheritance.
+                </p>
+        </div>
+    </div>
+
+    <div>
+        <legend>
+            <h4>Example ( Please check console log for output of below example )</h4>
+        </legend>
+        <pre>
+                /**
+                * This Animal function is called as constructor function
+                * Every constructor function is treaded as Class and 
+                * can be written as Pascal Case. 
+                */
+               function Animal() {
+               
+               }
+               
+               /** public variable */
+               Animal.prototype.type = 'Animal: ';
+               
+               /** public function */
+               Animal.prototype.walk = function () {
+                   this.log(' is walking');
+               }
+               
+               /** public function */
+               Animal.prototype.talk = function () {
+                   this.log(' is talking');
+               }
+               
+               /** public function */
+               Animal.prototype.log = function (msg) {
+                   console.log(this.type + msg);
+               }
+               
+               /**
+                * In order to inherit Dog from Animal we will use prototype. 
+                */
+               function Dog() {
+                   this.type = 'Dog'
+               }
+               
+               /** Pointing Dog prototype to Animal Prototype hence creating an link for inheritance */
+               Dog.prototype = Animal.prototype;
+               
+               Dog.prototype.swim = function () {
+                   this.log(' is swiming');
+               }
+               
+               var dog = new Dog();
+               dog.swim();
+               dog.walk();
+               dog.talk();
+               
+        </pre>
+    </div>
+</body>
+
+</html>

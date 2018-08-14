@@ -25,6 +25,22 @@ Animal.prototype.log = function (msg) {
     console.log(this.type + msg);
 }
 
-var animal = new Animal(); // we have to use new to create instance
-animal.walk();
-animal.talk();
+/**
+ * In order to inherit Dog from Animal we will use prototype. 
+ */
+function Dog() {
+    this.type = 'Dog'
+}
+
+/** Pointing Dog prototype to Animal Prototype hence creating an link for inheritance */
+Dog.prototype = Animal.prototype;
+
+Dog.prototype.swim = function () {
+    this.log(' is swiming');
+}
+
+var dog = new Dog();
+dog.swim();
+dog.walk();
+dog.talk();
+
